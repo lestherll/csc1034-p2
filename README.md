@@ -42,10 +42,14 @@ card are shuffled and placed face down to form a new stock pile.
 
 Start switch on the command line with
 
-	$ python switch.py
+	$ python3 switch.py
 
 Or press `Run` in your IDE.
 
 Run the test suite with
 
-	$ python -m pytest
+	$ python3 -m pytest
+
+The latter assumes that you have installed pytest using
+
+    $ pip3 install pytest
