@@ -49,7 +49,7 @@ class Switch:
             if choice == 1:
                 # set up self.players before round starts
                 player_info = UI.get_player_information(MAX_PLAYERS)
-                self.players = [player_classes(name) for name, typ in player_info]
+                self.players = [player_classes[typ](name) for typ, name in player_info]
                 self.run_round()
             else:
                 break
