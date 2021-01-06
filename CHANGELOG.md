@@ -1,6 +1,10 @@
 # CHANGELOG
 
-* v1.1.1 [2019-11-08]: Fixed bugs that won't allow game to run.
+* v1.1.1b [2019-11-08]: Fixed bugs related to starting a game
+  Fixed players/bots instantiation when switch.py is ran
+  Fixed index for cards at UI.select_card
+
+* v1.1.1a [2019-11-08]: Fixed bugs that won't allow game to run.
   Fixed SimpleAI.ask_for_swap.
   Fixed missing () for run_game for running switch.py.
   
