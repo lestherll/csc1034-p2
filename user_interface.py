@@ -1,4 +1,4 @@
-"""command line interfacce for the switch game"""
+"""command line interface for the switch game"""
 import random
 
 

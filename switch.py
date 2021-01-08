@@ -40,7 +40,7 @@ class Switch:
         self.direction = 1
 
     def run_game(self):
-        """Run rounds of the game until player decides to exist."""
+        """Run rounds of the game until player decides to exit."""
         UI.say_welcome()
         # show game menu and run rounds until player decides to exit
         while True:
@@ -56,7 +56,7 @@ class Switch:
         UI.say_goodbye()
 
     def run_round(self):
-        """Runs a single round of switch.
+        """Runs a single round of switch. Main gameplay loop.
 
         Continuously calls Switch.run_player for the current player,
         and advances the current player depending on current direction
@@ -70,11 +70,9 @@ class Switch:
             won = self.run_player(self.players[i])
             if won:
                 break
-            elif not won:
+            else:
                 # advance player index depending on self.direction
                 i = (i+self.direction) % len(self.players)
-            else:
-                continue
         UI.print_winner_of_game(self.players[1])
 
     def setup_round(self):
@@ -158,7 +156,20 @@ class Switch:
         return False
 
     def can_discard(self, card):
-        """Return whether card can be discarded onto discard pile."""
+        """Return whether card can be discarded onto discard pile.
+
+        Parameters:
+        card -- card to be checked
+
+        Returns:
+        True if card can be discarded otherwise False
+
+        Determines whether card that has been passed can be discarded
+        or not. Q or A card can always be discarded. The top of the
+        discard pile is checked to see if it matches the value or the
+        suit of the passed card. If it matches in either, True is
+        returned otherwise False.
+        """
         # queens and aces can always be discarded
         if card.value in 'QA':
             return True
@@ -208,6 +219,12 @@ class Switch:
         Parameters:
         player -- Player who discards card
         card -- Card to be discarded
+
+        After a card is discarded, the game effects are applied. An 8 card
+        skips to the next player. A 2 card forces the next player to draw 2
+        cards. A K card reverses the direction of the game. A J card allows
+        current player to swap hands with another player. A Q card forces the
+        next player to draw 4 cards.
         """
         # remove card from player hand
         player.hand.remove(card)
@@ -232,7 +249,7 @@ class Switch:
             others = [p for p in self.players if p is not player]
             choice = player.ask_for_swap(others)
             self.swap_hands(player, choice)
-        # if card is a queen, next players needs to draw four
+        # if card is a queen, next player needs to draw four
         elif card.value == 'Q':
             self.draw4 = True
 
