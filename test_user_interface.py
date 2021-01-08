@@ -6,11 +6,13 @@ from players import *
 
 
 def test_convert_to_int():
+    """Test if a string is converted to int if it is valid"""
     assert -1 == convert_to_int("a")
     assert 1 == convert_to_int("1")
 
 
 def test_get_int_input():
+    """Test if a string input is converted to int if it is valid"""
     choice = "1"
     assert choice.isdigit()
     assert not isinstance(choice, int)
@@ -20,6 +22,7 @@ def test_get_int_input():
 
 
 def test_get_string_input():
+    """Test if a string input is of string type"""
     return_value = "1"
     assert isinstance(return_value, str)
     with patch("builtins.input", return_value=return_value):
