@@ -1,5 +1,10 @@
 # CHANGELOG
 
+* v1.1.1d [2021-01-06]: Fixed Switch.can_discard for Q, A to always be discardable 
+  Fixed test_can_discard__allows_queen from K to Q
+  Fixed user_interface.get_player_information to randomise AI type
+
+
 * v1.1.1c [2021-01-06]: Fixed player not switching to the other
   Fixed initial game flags for setup_round
   Fixed user_interface.select_player type error issue
