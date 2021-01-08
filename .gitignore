@@ -1,0 +1,9 @@
+# IDE configurations
+.idea/
+
+# Virtual environment
+venv/
+
+# Byte compiled / Unit test
+__pycache__/
+.pytest_cache/
