@@ -64,8 +64,7 @@ class Switch:
         """
         # deal cards etc.
         self.setup_round()
-
-        i = 0 # current player index
+        i = 0   # current player index
         while True:
             # process current player's turn
             won = self.run_player(self.players[i])
@@ -233,6 +232,9 @@ class Switch:
             others = [p for p in self.players if p is not player]
             choice = player.ask_for_swap(others)
             self.swap_hands(player, choice)
+        # if card is a queen, next players needs to draw four
+        elif card.value == 'Q':
+            self.draw4 = True
 
     def draw_and_discard(self, player):
         """Draw a card from stock and discard it if possible.
