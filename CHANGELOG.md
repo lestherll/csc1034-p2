@@ -3,6 +3,7 @@
 * v1.1.1c [2021-01-06]: Fixed player not switching to the other
   Fixed initial game flags for setup_round
   Fixed user_interface.select_player type error issue
+  Fixed Switch.draw4 not being set to True when Q is discarded
   
 
 * v1.1.1b [2021-01-06]: Fixed bugs related to starting a game
