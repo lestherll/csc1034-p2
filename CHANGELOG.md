@@ -1,5 +1,10 @@
 # CHANGELOG
 
+* v1.1.1e [2021-01-09]: Fixed players.player_classes issue with wrong order of AI typing
+  Fixed winner message printing wrong winner
+  Fixed possibility where user/s can play with only 1 player
+  
+
 * v1.1.1d [2021-01-08]: Fixed Switch.can_discard for Q, A to always be discardable 
   Fixed test_can_discard__allows_queen from K to Q
   Fixed user_interface.get_player_information to randomise AI type
