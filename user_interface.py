@@ -92,7 +92,7 @@ def get_player_information(max_players):
     ai_names = ['Angela', 'Bart', 'Charly', 'Dorothy']
 
     # how many AI players? ensure there are at least 2 players
-    min_val = 1 if (len(player_info) == 0) else 0
+    min_val = 1 if (len(player_info) == 1) else 0
     max_val = max_players - no_of_players
 
     if max_val != 0:
