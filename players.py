@@ -98,8 +98,9 @@ class SmartAI(SimpleAI):
         return random.choice(best)
 
 
+# contains all player classes
 player_classes = {
     'human': Player,
-    'simple': SmartAI,
-    'smart': SimpleAI,
+    'simple': SimpleAI,
+    'smart': SmartAI,
 }
