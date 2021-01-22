@@ -38,9 +38,9 @@ def print_discard_result(discarded, card):
 
 def print_winner_of_game(player):
     """display winner information"""
-    print_message('\n'+80*'-')
+    print_message('\n' + 80 * '-')
     print_message(f"Woohoo!!! Winner of the game is: {player.name}")
-    print_message(80*'-')
+    print_message(80 * '-')
 
 
 def say_goodbye():
@@ -86,7 +86,7 @@ def get_player_information(max_players):
 
     # for each player, get name
     for i in range(no_of_players):
-        print(f"Please enter the name of player {i+1}:")
+        print(f"Please enter the name of player {i + 1}:")
         player_info.append(('human', get_string_input()))
 
     ai_names = ['Angela', 'Bart', 'Charly', 'Dorothy']
@@ -95,16 +95,18 @@ def get_player_information(max_players):
     min_val = 1 if (len(player_info) == 1) else 0
     max_val = max_players - no_of_players
 
+    # Assign random name to AI if there are AI players
     if max_val != 0:
         print(f"\nHow many ai players [{min_val:d}-{max_val:d}]:")
         no_of_players = get_int_input(min_val, max_val)
+        random_name_order = random.sample(ai_names, k=no_of_players)
 
-    # randomly assign a simple or smart AI for each computer strategy
-    for name in ai_names[:no_of_players]:
-        if random.choice([True, False]):
-            player_info.append(('simple', name))
-        else:
-            player_info.append(('smart', f"Smart {name}"))
+        # randomly assign a simple or smart AI for each computer strategy
+        for name in random_name_order:
+            if random.choice([True, False]):
+                player_info.append(('simple', name))
+            else:
+                player_info.append(('smart', f"Smart {name}"))
 
     return player_info
 
@@ -112,14 +114,15 @@ def get_player_information(max_players):
 def select_card(cards):
     """select card from hand"""
     print(f"Please select from one of the following cards: [1-{len(cards):d}]")
+    cards.insert(0, None)
     for i in range(len(cards)):
-        card = cards[i]
-        print(f"{i+1} - {card}")
+        card = cards[i] if cards[i] is not None else "Draw"
+        print(f"{i + 1} - {card}")
 
     # get choice
     choice = get_int_input(1, len(cards))
     # get card
-    return cards[choice-1] if choice else None
+    return cards[choice - 1] if choice else None
 
 
 def select_player(players):
