@@ -1,5 +1,6 @@
 from unittest.mock import patch
 
+import user_interface
 from user_interface import *
 from cards import Card
 from players import *
@@ -75,13 +76,19 @@ def test_select_card():
     """Test if input returns correct card from select card"""
     deck = [Card("♢", "A"), Card("♢", "K")]
     choice = 1
-    with patch("builtins.input", return_value=choice):
+    with patch("user_interface.get_int_input", return_value=choice):
         assert select_card(deck) == deck[choice-1]
+
+    # Check if player can draw voluntarily and that it returns None
+    deck = []
+    choice = 1
+    with patch("user_interface.get_int_input", return_value=choice):
+        assert not select_card(deck)
 
 
 def test_select_player():
     """Test if input returns correct player in select_player"""
     players = [Player("Joe"), SimpleAI("Angela"), SmartAI("Bart")]
     choice = 2
-    with patch("builtins.input", return_value=choice):
+    with patch("user_interface.get_int_input", return_value=choice):
         assert select_player(players) == players[choice-1]
