@@ -1,9 +1,9 @@
 """Main module of the switch card game"""
 import random
-from players import player_classes
-import user_interface as UI
+from switch.players import player_classes
+import switch.user_interface as UI
 
-from cards import generate_deck
+from switch.cards import generate_deck
 
 
 # Game configuration

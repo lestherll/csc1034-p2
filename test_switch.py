@@ -2,7 +2,7 @@
 from copy import deepcopy
 import switch
 
-from cards import Card
+from switch.cards import Card
 
 
 class MockPlayer:

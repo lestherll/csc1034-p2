@@ -1,9 +1,8 @@
 from unittest.mock import patch
 
-import user_interface
-from user_interface import *
-from cards import Card
-from players import *
+from switch.user_interface import *
+from switch.cards import Card
+from switch.players import *
 
 
 def test_convert_to_int():

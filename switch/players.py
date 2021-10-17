@@ -1,6 +1,6 @@
 """Players for the switch game"""
 import random
-import user_interface as UI
+import switch.user_interface as UI
 
 
 class Player:

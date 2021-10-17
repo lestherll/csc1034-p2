@@ -10,7 +10,7 @@
 - Fixed Switch.can_discard for Q, A to always be discardable.
 - Fixed test_can_discard__allows_queen from K to Q.
 - Fixed user_interface.get_player_information to randomise AI type.
-- Improved test suite: added tests for [cards](cards.py) and [user_interface](user_interface.py).
+- Improved test suite: added tests for [cards](switch/cards.py) and [user_interface](switch/user_interface.py).
 
 
 ### v1.1.1c [2021-01-08]: 

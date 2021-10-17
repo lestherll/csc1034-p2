@@ -42,7 +42,7 @@ card are shuffled and placed face down to form a new stock pile.
 
 Start switch on the command line with
 
-	$ python3 switch.py
+	$ python3 -m switch   # must be inside local repo
 
 Or press `Run` in your IDE.
 
