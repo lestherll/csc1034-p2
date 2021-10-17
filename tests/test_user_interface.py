@@ -1,14 +1,14 @@
 from unittest.mock import patch
 
-from switch.user_interface import *
+from switch import user_interface as ui
 from switch.cards import Card
 from switch.players import *
 
 
 def test_convert_to_int():
     """Test if a string is converted to int if it is valid"""
-    assert -1 == convert_to_int("a")
-    assert 1 == convert_to_int("1")
+    assert -1 == ui.convert_to_int("a")
+    assert 1 == ui.convert_to_int("1")
 
 
 def test_get_int_input():
@@ -17,8 +17,8 @@ def test_get_int_input():
     assert choice.isdigit()
     assert not isinstance(choice, int)
     with patch("builtins.input", return_value=choice):
-        assert get_int_input(0, 4) != choice
-        assert get_int_input(0, 4) == convert_to_int(choice)
+        assert ui.get_int_input(0, 4) != choice
+        assert ui.get_int_input(0, 4) == ui.convert_to_int(choice)
 
 
 def test_get_string_input():
@@ -26,13 +26,13 @@ def test_get_string_input():
     return_value = "1"
     assert isinstance(return_value, str)
     with patch("builtins.input", return_value=return_value):
-        assert get_string_input() == return_value
+        assert ui.get_string_input() == return_value
 
 
 def player_info_input_helper(func_input):
     """Helper function that returns player_info based on iterable input"""
     with patch("builtins.input", side_effect=func_input):
-        player_info = get_player_information(4)
+        player_info = ui.get_player_information(4)
 
     return player_info
 
@@ -76,13 +76,13 @@ def test_select_card():
     deck = [Card("♢", "A"), Card("♢", "K")]
     choice = 1
     with patch("user_interface.get_int_input", return_value=choice):
-        assert select_card(deck) == deck[choice-1]
+        assert ui.select_card(deck) == deck[choice-1]
 
     # Check if player can draw voluntarily and that it returns None
     deck = []
     choice = 1
     with patch("user_interface.get_int_input", return_value=choice):
-        assert not select_card(deck)
+        assert not ui.select_card(deck)
 
 
 def test_select_player():
@@ -90,4 +90,4 @@ def test_select_player():
     players = [Player("Joe"), SimpleAI("Angela"), SmartAI("Bart")]
     choice = 2
     with patch("user_interface.get_int_input", return_value=choice):
-        assert select_player(players) == players[choice-1]
+        assert ui.select_player(players) == players[choice-1]
